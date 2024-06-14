@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -47,7 +48,23 @@ namespace ConsoleUI
 
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
+            #endregion
+
+            Car car = new Car() { Make = "Audi", Model = "R8", Year = "2022", HasTrunk = true };
+            Motorcycle motorcycle = new Motorcycle() { Make = "BMW", Model = "S1000RR", Year = "2024", HasSideCart = true };
+            Vehicle vehicle1 = new Car() { Make = "Ford", Model = "Shelby GT500", Year = "2022", HasTrunk = true }; 
+            Vehicle vehicle2 = new Motorcycle() { Make = "Harley", Model = "Fatboy", Year = "2024", HasSideCart = false };
+            List<Vehicle> vehicles = new List<Vehicle>();
+            vehicles.Add(car);
+            vehicles.Add(motorcycle);
+            vehicles.Add(vehicle1);
+            vehicles.Add(vehicle2);
+            foreach (var vehicle in vehicles) 
+            {
+                Console.WriteLine($"Here is the {vehicle.Year} {vehicle.Make} {vehicle.Model}");
+                
+            }
+                        
             Console.ReadLine();
         }
     }
